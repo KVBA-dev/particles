@@ -118,7 +118,13 @@ render :: proc(ps: ^System) {
 			s = math.lerp(nv.end, nv.start, t)
 		}
 
-		rl.DrawCircleV(p.position, s, col)
+		rec := rl.Rectangle {
+			x = -s,
+			y = -s,
+			width = s * 2,
+			height = s * 2,
+		}
+		rl.DrawRectanglePro(rec, -p.position, 0, col)
 	}
 }
 
